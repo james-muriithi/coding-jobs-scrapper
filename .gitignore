@@ -1,0 +1,10 @@
+__pycache__/
+jobs/
+test.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
