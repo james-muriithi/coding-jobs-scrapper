@@ -20,7 +20,7 @@ def extract_company(div):
 # extract job salary
 def extract_salary(div): 
     try:
-        return (div.find('div', attrs={'class', 'search-result__job-salary'}).text)
+        return (div.find('div', attrs={'class', 'search-result__job-salary'}).text.strip())
     except:
         return 'NOT_FOUND'
     

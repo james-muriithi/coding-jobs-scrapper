@@ -5,6 +5,7 @@ import time
 from .functions import *
 from datetime import datetime
 import os
+import json
 
 # give the filename the name of the current folder
 folder = os.path.join(os.getcwd(), 'jobs')
@@ -14,8 +15,8 @@ file_name = os.path.join(folder, 'brightermondays-' +
 domain = 'https://www.brightermonday.co.ke/jobs/it-software'
 
 # dataframe
-df = pd.DataFrame(columns=['job_title', 'location',
-                           'company_name', 'summary', 'salary', 'link', 'post_date', 'full_text', 'fetch_date'])
+df = pd.DataFrame(columns=['title', 'location',
+                           'company', 'summary', 'salary', 'link', 'post_date', 'full_text', 'fetch_date'])
 
 
 def scrap_jobs():
@@ -69,6 +70,9 @@ def scrap_jobs():
 
         #appending list of job post info to dataframe at index num
         df.loc[num] = job_post
+
+        postJob(df.loc[num].to_dict())
+        
     saveCSV()
 
 def saveCSV():
@@ -77,6 +81,13 @@ def saveCSV():
         os.makedirs(folder)
 
     df.to_csv(file_name, encoding='utf-8')
+
+def postJob(data):
+    endpoint = 'http://localhost/coding-jobs/public/new'
+
+    x = requests.post(endpoint, json=data)
+    print(x.json())
+
 
 def main():
     scrap_jobs()
