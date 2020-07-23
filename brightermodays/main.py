@@ -85,8 +85,12 @@ def saveCSV():
 def postJob(data):
     endpoint = 'http://localhost/coding-jobs/public/new'
 
-    x = requests.post(endpoint, json=data)
-    print(x.json())
+    try:
+        x = requests.post(endpoint, json=data)
+        print(x.json())
+    except Exception as error:
+        print(error)
+        pass
 
 
 def main():
