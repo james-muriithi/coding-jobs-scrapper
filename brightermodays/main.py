@@ -83,7 +83,7 @@ def saveCSV():
     df.to_csv(file_name, encoding='utf-8')
 
 def postJob(data):
-    endpoint = 'http://localhost/coding-jobs/public/new'
+    endpoint = 'https://developer.coding-jobs.oyaa.co.ke/new'
 
     try:
         x = requests.post(endpoint, json=data)
