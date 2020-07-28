@@ -69,7 +69,7 @@ def scrap_jobs(domain):
         #appending list of job post info to dataframe at index num
         df.loc[num] = job_post
 
-        print(df.loc[num].to_dict())
+        postJob(df.loc[num].to_dict())
         
     # saveCSV()
 
@@ -93,9 +93,7 @@ def postJob(data):
 
 def main():
     page1 = 'https://www.jobsearchke.com/category/ICT/'
-    page2 = 'https://www.jobsearchke.com/category/ICT/?page=2'
     scrap_jobs(page1)
-    scrap_jobs(page2)
 
 
 if __name__ == "__main__":
