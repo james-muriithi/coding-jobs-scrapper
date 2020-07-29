@@ -14,7 +14,7 @@ def extract_company(div):
     try:
         return (div.find('div', attrs={'class', 'job-list-content'}).find('h4').find('a').text.split(' at ')[1])
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract job salary
@@ -29,7 +29,7 @@ def extract_location(div):
         return (div.find('div', attrs={'class', 'job-list-content'})
                 .find('div', attrs={'class', 'meta-tag'}).findAll('span')[1].text)
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract job title
@@ -37,7 +37,7 @@ def extract_job_title(div):
     try:
         return (div.find('div', attrs={'class', 'job-list-content'}).find('h4').find('a').text)
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract jd summary 
@@ -59,7 +59,7 @@ def extract_link(div):
             'div', attrs={'class', 'job-list-content'}).find('h4').find('a')
         return (myurl+title.get('href'))
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract date of job when it was posted 
@@ -68,7 +68,7 @@ def extract_date(div):
         return (div.find('div', attrs={'class', 'job-list-content'})
                 .find('div', attrs={'class', 'meta-tag'}).findAll('span')[2].text)
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract full job description from link
@@ -81,8 +81,8 @@ def extract_fulltext(url):
                 'class': 'box'})
         return '\n'.join(div.stripped_strings)
     except:
-        return 'NOT_FOUND'
-    return 'NOT_FOUND'
+        return ''
+    return ''
 
 
 # write logs to file

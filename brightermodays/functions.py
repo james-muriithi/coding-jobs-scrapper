@@ -14,7 +14,7 @@ def extract_company(div):
     try:
         return (div.find('div', attrs={'class', 'search-result__job-meta'}).text)
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract job salary
@@ -22,7 +22,7 @@ def extract_salary(div):
     try:
         return (div.find('div', attrs={'class', 'search-result__job-salary'}).text.strip())
     except:
-        return 'NOT_FOUND'
+        return ''
     
 
 
@@ -31,7 +31,7 @@ def extract_location(div):
     try:
         return (div.find('div', attrs={'class', 'search-result__location'}).text)
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract job title
@@ -40,7 +40,7 @@ def extract_job_title(div):
         company = div.find(name="h3")
         return (company.text)
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract jd summary 
@@ -65,7 +65,7 @@ def extract_link(div):
             name="a", attrs={"class", "search-result__job-title"})
         return (company.get('href'))
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract date of job when it was posted 
@@ -75,7 +75,7 @@ def extract_date(div):
             name="div", attrs={"class", "search-result__job-function"}).find(name="div", attrs={"class", "if-wrapper-column align-self--end text--right"})
         return (company.text+ " ago")
     except:
-        return 'NOT_FOUND'
+        return ''
 
 
 # extract full job description from link
@@ -87,8 +87,8 @@ def extract_fulltext(url):
                              'class': 'job__details__user-edit wrapper--inline-block float--left'})
         return '\n'.join(divs[1].stripped_strings)
     except:
-        return 'NOT_FOUND'
-    return 'NOT_FOUND'
+        return ''
+    return ''
 
 
 # write logs to file
