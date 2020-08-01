@@ -4,10 +4,7 @@ python:
   - "3.7"
   - "3.8"
 env:
-  - API_ENDPOINT=https://developer.coding-jobs.oyaa.co.ke/new
-  - ACCESS_TOKEN=TOKEN
-  - CLIENT_ID=ID
-  - CLIENT_SECRET=SECRET  
+  - API_ENDPOINT=https://developer.coding-jobs.oyaa.co.ke/new ACCESS_TOKEN=TOKEN CLIENT_ID=ID CLIENT_SECRET=SECRET  
 # command to install dependencies
 install:
   - pip install -r requirements.txt
