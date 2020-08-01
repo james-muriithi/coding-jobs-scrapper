@@ -21,17 +21,17 @@ scrap coding jobs from various sites
     > Auth required: Yes (OAuth 2.0)
     ```python
     headers = {
-        "Authorization": "Bearer [ACCESS_TOKE_HERE]" 
+        "Authorization": "Bearer [ACCESS_TOKEN_HERE]" 
     }
     ```
 
     > Data
     ```JSON
-        {
-            "fullname": "full name",
-            "username": "username",
-            "password": "password"
-        }
+    {
+        "fullname": "full name",
+        "username": "username",
+        "password": "password"
+    }
     ```
 
 
