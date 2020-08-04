@@ -34,7 +34,8 @@ scrap coding jobs from various sites
         "summary":"A small job description",
         "salary":"KSh 40000",
         "link":"https://www.brightermonday.co.ke/listings/data-analyst-mpjwzz",
-        "post_date":"5d ago"
+        "post_date":"5d ago",
+        "full_text" : "full job description"
     }
     ```
 [checkout the api repository](https://github.com/james-muriithi/coding-jobs-api)
