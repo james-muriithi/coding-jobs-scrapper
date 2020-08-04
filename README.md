@@ -37,7 +37,7 @@ scrap coding jobs from various sites
         "post_date":"5d ago"
     }
     ```
-
+[checkout the api repository](https://github.com/james-muriithi/coding-jobs-api)
 
 ## How to Run
  
