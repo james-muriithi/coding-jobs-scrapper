@@ -1,0 +1,8 @@
+__pycache__/
+jobs/
+test.py
+.env
+.venv
+env/
+venv/
+ENV/

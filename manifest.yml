@@ -1,0 +1,6 @@
+---
+applications:
+ - name: coding-jobs-scrapper
+   no-route: true
+   health-check-type: process
+   memory: 128M
