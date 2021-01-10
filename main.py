@@ -14,10 +14,13 @@ schedule.every(3).hours.do(ihub)
 schedule.every(3).hours.do(linkedin)
 
 if __name__ == "__main__":
-    brightermodays()
-    jobsearchke()
-    ihub()
     linkedin()
+    time.sleep(1)
+    brightermodays()
+    time.sleep(1)
+    jobsearchke()
+    time.sleep(1)
+    ihub()
     while True:
         schedule.run_pending()
         time.sleep(1)

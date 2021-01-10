@@ -46,8 +46,6 @@ def extract_summary(link):
     try:
         text = extract_fulltext(link)
         sentences = text.splitlines()
-        print(' '.join(sentences[0:2]))
-        print('*'*10 + '\n\n')
         return ' '.join(sentences[0:2])
     except Exception as e:
         write_logs(str(e))
