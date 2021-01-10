@@ -2,7 +2,7 @@
 import requests
 import pandas as pd
 import time
-from functions import *
+from .functions import *
 from datetime import datetime
 import os
 import json
