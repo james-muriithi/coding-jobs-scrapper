@@ -70,6 +70,8 @@ def scrap_jobs(domain):
         #appending list of job post info to dataframe at index num
         df.loc[num] = job_post
 
+        print(df.loc[num].to_dict())
+
         postJob(df.loc[num].to_dict())
         
     saveCSV()
@@ -91,7 +93,7 @@ def postJob(data):
         print(x.json())
     except Exception as error:
         print(error)
-        write_logs(error.text)
+        write_logs(str(error))
         pass
 
 
