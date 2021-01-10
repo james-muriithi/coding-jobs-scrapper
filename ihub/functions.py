@@ -47,7 +47,7 @@ def extract_summary(div):
         return (div.find('div', attrs={'class', 'item-data'}).find('div', attrs={'class', 'post-description'})
                 .find('a').text)
     except Exception as e:
-        write_logs(e)
+        write_logs(e.text)
         return ''
     return ''
  
