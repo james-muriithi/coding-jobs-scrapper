@@ -46,7 +46,7 @@ def extract_summary(div):
         return (div.find('div', attrs={'class', 'job-list-content'})
                 .find('p').text)
     except Exception as e:
-        write_logs(e)
+        write_logs(str(e))
         return ''
     return ''
  

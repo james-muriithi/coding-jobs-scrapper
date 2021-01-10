@@ -50,7 +50,7 @@ def extract_summary(link):
         print('*'*10 + '\n\n')
         return ' '.join(sentences[0:2])
     except Exception as e:
-        write_logs(e.text)
+        write_logs(str(e))
         return ''
     return ''
 
@@ -84,7 +84,7 @@ def extract_fulltext(url):
                 'class': 'show-more-less-html__markup'})
         return '\n'.join(div.stripped_strings)
     except Exception as e:
-        write_logs(e.text)
+        write_logs(str(e))
         return ''
     return ''
 

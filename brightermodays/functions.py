@@ -53,7 +53,7 @@ def extract_summary(url):
         summary.h3.decompose()
         return '\n'.join(summary.stripped_strings)
     except Exception as e:
-        write_logs(e.text)
+        write_logs(str(e))
         return ''
     return ''
  
