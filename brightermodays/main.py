@@ -51,7 +51,7 @@ def scrap_jobs():
         job_post.append(extract_company(div))
 
         #grabbing summary text
-        job_post.append(extract_summary(div))
+        job_post.append(extract_summary(link))
 
         #grabbing salary
         job_post.append(extract_salary(div))
