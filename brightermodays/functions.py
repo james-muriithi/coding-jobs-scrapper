@@ -73,6 +73,8 @@ def extract_date(div):
     try:
         company = div.find(
             name="div", attrs={"class", "search-result__job-function"}).find(name="div", attrs={"class", "if-wrapper-column align-self--end text--right"})
+        if company is None:
+            company = name="div", attrs={"class", "search-result__job-function"}).find(name="div", attrs={"class", "top-jobs__content__time"})
         return (company.text+ " ago")
     except:
         return ''
