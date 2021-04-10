@@ -70,7 +70,7 @@ def scrap_jobs(domain):
         #appending list of job post info to dataframe at index num
         df.loc[num] = job_post
 
-        # postJob(df.loc[num].to_dict())
+        postJob(df.loc[num].to_dict())
         
     saveCSV()
 
