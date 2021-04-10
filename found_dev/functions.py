@@ -24,7 +24,7 @@ def extract_salary(div):
     try:
         lastDiv = div.find_all('div')[-1]
         salaryIcon = lastDiv.find(name="i", attrs={"class", "fas fa-money-bill color-money"})
-        return (salaryIcon.find_parent('span').text())
+        return (salaryIcon.find_parent('span').text.strip())
     except:
         return ''
     
