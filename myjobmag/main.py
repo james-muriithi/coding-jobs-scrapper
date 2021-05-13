@@ -61,7 +61,7 @@ def scrap_jobs(domain):
         job_post.append(extract_date(div))
 
         # grabbing full_text
-        job_post.append(extract_summary(div))
+        job_post.append(extract_fulltext(link))
 
         # current time
         job_post.append(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))

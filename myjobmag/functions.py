@@ -66,7 +66,7 @@ def extract_link(div):
 # extract date of job when it was posted 
 def extract_date(div):
     try:
-        return (div.find('li', attrs={'class', 'job-item'}).find('ul')
+        return (div.find('li', attrs={'class', 'job-item'})
                 .find('li', attrs={'id', 'job-date'}).text)
     except:
         return ''
