@@ -71,11 +71,9 @@ def scrap_jobs(domain):
 
         data = df.loc[num].to_dict()
 
-        print(data)
+        postJob(data)
 
-        # postJob(data)
-
-    saveCSV()
+    # saveCSV()
 
 
 def saveCSV():
