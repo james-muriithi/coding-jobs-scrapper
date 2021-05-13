@@ -12,7 +12,9 @@ def get_soup(text):
 def extract_company(div): 
     
     try:
-        return (div.find('div', attrs={'class', 'item-data'}).find('div', attrs={'class', 'job-company'}).find('a').text)
+        # return (div.find('div', attrs={'class', 'job-list-content'}).find('h4').find('a').text.split(' at ')[1])
+        job_title = extract_job_title(div)
+        return job_title.split(' at ')[1].strip()
     except:
         return ''
 
@@ -26,17 +28,16 @@ def extract_salary(div):
 # extract job location
 def extract_location(div):
     try:
-        return (div.find('div', attrs={'class', 'item-data'})
-        .find('div', attrs={'class', 'job-company'})
-            .find('div', attrs={'class', 'job-location'}).text)
+        return (div.find('div', attrs={'class', 'job-list-content'})
+                .find('div', attrs={'class', 'meta-tag'}).findAll('span')[1].text)
     except:
-        return ''
+        return 'Nairobi'
 
 
 # extract job title
 def extract_job_title(div):
     try:
-        return (div.find('div', attrs={'class', 'item-data'}).find('h3').find('a').text)
+        return (div.find('li', attrs={'class', 'mag-b'}).find('h2').find('a').text)
     except:
         return ''
 
@@ -44,8 +45,7 @@ def extract_job_title(div):
 # extract jd summary 
 def extract_summary(div): 
     try:
-        return (div.find('div', attrs={'class', 'item-data'}).find('div', attrs={'class', 'post-description'})
-                .find('a').text)
+        return (div.find('li', attrs={'class', 'job-desc'}).text)
     except Exception as e:
         write_logs(str(e))
         return ''
@@ -54,10 +54,10 @@ def extract_summary(div):
 
 # extract link of job description 
 def extract_link(div): 
-    myurl = 'https://ihub.co.ke'
+    myurl = 'https://www.myjobmag.co.ke/'
     try:
         title = div.find(
-            'div', attrs={'class', 'item-data'}).find('h3').find('a')
+            'li', attrs={'class', 'mag-b'}).find('h2').find('a')
         return (myurl+title.get('href'))
     except:
         return ''
@@ -66,19 +66,10 @@ def extract_link(div):
 # extract date of job when it was posted 
 def extract_date(div):
     try:
-        return (div.find('div', attrs={'class', 'item-data'})
-                .find('div', attrs={'class', 'job-links'})
-                .find('div', attrs={'class', 'job-time'}).text)
+        return (div.find('li', attrs={'class', 'job-item'}).find('ul')
+                .find('li', attrs={'id', 'job-date'}).text)
     except:
         return ''
-
-def extract_category(div):
-    try:
-        return (div.find('div', attrs={'class', 'item-data'})
-                .find('div', attrs={'class', 'job-links'})
-                .find('div', attrs={'class', 'job-cat'}).text)
-    except:
-        return ''      
 
 
 # extract full job description from link
@@ -87,7 +78,7 @@ def extract_fulltext(url):
         page = requests.get(url)
         soup = BeautifulSoup(page.text, "lxml", from_encoding='utf-8')
         div = soup.find('div', attrs={
-            'class': 'job-content'}).find('div', attrs={'class', 'vacancy-description'})
+            'class': 'job-details'})
         return '\n'.join(div.stripped_strings)
     except:
         return ''
