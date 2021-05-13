@@ -9,12 +9,12 @@ import time
 from dotenv import load_dotenv
 
 load_dotenv()
-
+schedule.every(3).hours.do(linkedin)
 schedule.every(3).hours.do(brightermodays)
+schedule.every(3).hours.do(myjobmag)
 schedule.every(3).hours.do(jobsearchke)
 schedule.every(3).hours.do(ihub)
-schedule.every(3).hours.do(linkedin)
-schedule.every(3).hours.do(myjobmag)
+
 schedule.every(3).hours.do(found_dev)
 
 if __name__ == "__main__":
@@ -22,10 +22,11 @@ if __name__ == "__main__":
     time.sleep(1)
     brightermodays()
     time.sleep(1)
+    myjobmag()
+    time.sleep(1)
     jobsearchke()
     time.sleep(1)
     ihub()
-    myjobmag()
     time.sleep(1)
     found_dev()
     time.sleep(1)
