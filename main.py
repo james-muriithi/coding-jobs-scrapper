@@ -15,7 +15,7 @@ schedule.every(3).hours.do(myjobmag)
 schedule.every(3).hours.do(jobsearchke)
 schedule.every(3).hours.do(ihub)
 
-schedule.every(3).hours.do(found_dev)
+# schedule.every(3).hours.do(found_dev)
 
 if __name__ == "__main__":
     linkedin()
@@ -28,8 +28,8 @@ if __name__ == "__main__":
     time.sleep(1)
     ihub()
     time.sleep(1)
-    found_dev()
-    time.sleep(1)
+    # found_dev()
+    # time.sleep(1)
     while True:
         schedule.run_pending()
         time.sleep(1)

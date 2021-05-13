@@ -54,7 +54,7 @@ def extract_summary(div):
 
 # extract link of job description 
 def extract_link(div): 
-    myurl = 'https://www.myjobmag.co.ke/'
+    myurl = 'https://www.myjobmag.co.ke'
     try:
         title = div.find(
             'li', attrs={'class', 'mag-b'}).find('h2').find('a')
