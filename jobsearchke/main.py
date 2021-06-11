@@ -30,8 +30,13 @@ def scrap_jobs(domain):
     soup = get_soup(page.text)
     divs = soup.find_all(name="div", attrs={"class": "job-list"})
 
+    # jobsearchke limit
+    limit = 25
+
     # for all jobs on a page
-    for div in divs:
+    for index, div in enumerate(divs):
+        if index >= limit:
+            break
         #specifying row num for index of job posting in dataframe
         num = (len(df) + 1)
         link = extract_link(div)
