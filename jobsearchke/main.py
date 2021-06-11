@@ -94,7 +94,7 @@ def postJob(data):
 
 
 def main():
-    page1 = 'https://www.jobsearchke.com/category/ICT/'
+    page1 = 'https://jobsearchke.com/category/software-engineering/'
     scrap_jobs(page1)
 
 
